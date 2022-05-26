@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="d-flex flex-column mb-2 ms-4 mt-4">
+	{{ form_start(form) }}
+    <div class="">
+	{{ form_widget(form) }}
+    </div>
+	<button type="submit" class="btn btn-button my-3 bg-primary" required>Ajouter</button>
+	{{ form_end(form) }}
+</div>
+<div>
+		<a href="{{ path('program_index') }}">
+			Retour vers les séries
+		</a>
+	</div>
+{% endblock %}
