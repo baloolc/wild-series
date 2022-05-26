@@ -72,8 +72,8 @@ class ProgramController extends AbstractController
     #[Entity('episode', options: ['id' => 'episodeId'])]
     public function showEpisode(Program $program, Season $season, Episode $episode): Response
     {
-        return $this->render('program/episode_show.html.twig', [
-            'program' => $program, 'season' => $season, 'episode' => $episode,
+        return $this->render('program/showSeason.html.twig', [
+            'program' => $program, 'season' => $season, 'episodes' => $episodes,
         ]);
     }
 

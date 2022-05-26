@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Episode;
 use App\Entity\Program;
 use App\Entity\Season;
 use App\Repository\EpisodeRepository;
@@ -42,7 +41,7 @@ class ProgramController extends AbstractController
     #[Route('program/{programId}/season/{seasonId}', name: 'program_show_season')]
     #[Entity('program', options: ['id' => 'programId'])]
     #[Entity('season', options: ['id' => 'seasonId'])]
-    public function showSeason(Program $program, Season $season, EpisodeRepository $episodeRepository ): Response
+    public function showSeason(Program $program, Season $season, ProgramRepository $programRepository, SeasonRepository $seasonRepository, EpisodeRepository $episodeRepository ): Response
     {
         if (!$program) {
             throw $this->createNotFoundException(
@@ -66,16 +65,7 @@ class ProgramController extends AbstractController
         ]);
     }
 
-    #[Route('program/{programId}/season/{seasonId}/episode/{episodeId}', name: 'program_episode_show')]
-    #[Entity('program', options: ['id' => 'programId'])]
-    #[Entity('season', options: ['id' => 'seasonId'])]
-    #[Entity('episode', options: ['id' => 'episodeId'])]
-    public function showEpisode(Program $program, Season $season, Episode $episode): Response
-    {
-        return $this->render('program/episode_show.html.twig', [
-            'program' => $program, 'season' => $season, 'episode' => $episode,
-        ]);
-    }
+    #[Routeprogram/{programId}/season/{seasonId}/episode/{episodeId}
 
 
 }
