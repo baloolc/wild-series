@@ -1,0 +1,36 @@
+<?php
+
+namespace App\DataFixtures;
+
+use App\Entity\Episode;
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
+use Doctrine\Persistence\ObjectManager;
+
+class EpisodeFixtures extends Fixture implements DependentFixtureInterface
+{
+    const EPISODE = [
+        ['Title' => 'aaaaaaah', 'Number' => '1', 'Synopsis' => 'Il court'],
+        ['Title' => 'Aimer', 'Number' => '2', 'Synopsis' => 'Il vol'],
+        ['Title' => 'Mourir', 'Number' => '3', 'Synopsis' => 'Il tombe'],
+        ['Title' => 'Speed', 'Number' => '4', 'Synopsis' => 'Il va vite'],
+        ['Title' => 'Moche', 'Number' => '5', 'Synopsis' => 'Il est moche'],
+        ['Title' => 'Rip', 'Number' => '6', 'Synopsis' => 'Il creuse'],
+    ];
+
+    public function load(ObjectManager $manager): void
+    {
+     
+        $manager->flush();
+    }
+
+    public function getDependencies()
+    {
+        return [
+
+          SeasonFixtures::class,
+
+        ];
+
+    }
+}
