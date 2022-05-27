@@ -31,6 +31,9 @@ class Program
     #[ORM\OneToMany(mappedBy: 'program', targetEntity: Season::class)]
     private $seasons;
 
+    #[ORM\OneToMany(mappedBy: 'program', targetEntity: Episode::class)]
+    private $episodes;
+
     #[ORM\Column(type: 'string', length: 255)]
     private $country;
 
@@ -104,6 +107,14 @@ class Program
         return $this->seasons;
     }
 
+      /**
+     * @return Collection<int, Episode>
+     */
+    public function getEpisodes(): Collection
+    {
+        return $this->episodes;
+    }
+
     public function addSeason(Season $season): self
     {
         if (!$this->seasons->contains($season)) {
@@ -126,6 +137,28 @@ class Program
         return $this;
     }
 
+
+    public function addEpisode(Episode $episode): self
+    {
+        if (!$this->episodes->contains($episode)) {
+            $this->episodes[] = $episode;
+            $episode->setProgram($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEpisode(Season $season): self
+    {
+        if ($this->seasons->removeElement($season)) {
+            // set the owning side to null (unless already changed)
+            if ($season->getProgram() === $this) {
+                $season->setProgram(null);
+            }
+        }
+
+        return $this;
+    }
 
     public function getCountry(): ?string
     {

@@ -31,6 +31,8 @@ class Program
     #[ORM\OneToMany(mappedBy: 'program', targetEntity: Season::class)]
     private $seasons;
 
+    
+
     #[ORM\Column(type: 'string', length: 255)]
     private $country;
 
@@ -40,7 +42,6 @@ class Program
     public function __construct()
     {
         $this->seasons = new ArrayCollection();
-        $this->episodes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -125,7 +126,6 @@ class Program
 
         return $this;
     }
-
 
     public function getCountry(): ?string
     {

@@ -31,6 +31,9 @@ class Program
     #[ORM\OneToMany(mappedBy: 'program', targetEntity: Season::class)]
     private $seasons;
 
+    #[ORM\OneToMany(mappedBy: 'program', targetEntity: Episode::class)]
+    private $episodes;
+
     #[ORM\Column(type: 'string', length: 255)]
     private $country;
 
@@ -104,6 +107,8 @@ class Program
         return $this->seasons;
     }
 
+    
+
     public function addSeason(Season $season): self
     {
         if (!$this->seasons->contains($season)) {
@@ -125,7 +130,6 @@ class Program
 
         return $this;
     }
-
 
     public function getCountry(): ?string
     {

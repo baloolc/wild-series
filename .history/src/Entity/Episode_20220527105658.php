@@ -17,6 +17,10 @@ class Episode
     #[ORM\JoinColumn(nullable: false)]
     private $season;
 
+    #[ORM\ManyToOne(targetEntity: Program::class, inversedBy: 'episodes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $program;
+
     #[ORM\Column(type: 'string', length: 255)]
     private $title;
 
@@ -34,6 +38,18 @@ class Episode
     public function getSeason(): ?season
     {
         return $this->season;
+    }
+
+    public function setSeason(?season $season): self
+    {
+        $this->season = $season;
+
+        return $this;
+    }
+
+    public function getProgram(): ?program
+    {
+        return $this->program;
     }
 
     public function setSeason(?season $season): self

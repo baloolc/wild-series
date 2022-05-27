@@ -43,6 +43,18 @@ class Episode
         return $this;
     }
 
+    public function getProgram(): ?program
+    {
+        return $this->program;
+    }
+
+    public function setProgram(?program $program): self
+    {
+        $this->program = $program;
+
+        return $this;
+    }
+
     public function getTitle(): ?string
     {
         return $this->title;

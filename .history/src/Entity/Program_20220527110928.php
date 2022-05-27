@@ -31,6 +31,9 @@ class Program
     #[ORM\OneToMany(mappedBy: 'program', targetEntity: Season::class)]
     private $seasons;
 
+    #[ORM\OneToMany(mappedBy: 'program', targetEntity: Episode::class)]
+    private $episodes;
+
     #[ORM\Column(type: 'string', length: 255)]
     private $country;
 
@@ -102,6 +105,14 @@ class Program
     public function getSeasons(): Collection
     {
         return $this->seasons;
+    }
+
+      /**
+     * @return Collection<int, Episode>
+     */
+    public function getEpisodes(): Collection
+    {
+        return $this->episodes;
     }
 
     public function addSeason(Season $season): self

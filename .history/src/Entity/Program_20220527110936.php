@@ -31,6 +31,9 @@ class Program
     #[ORM\OneToMany(mappedBy: 'program', targetEntity: Season::class)]
     private $seasons;
 
+    #[ORM\OneToMany(mappedBy: 'program', targetEntity: Episode::class)]
+    private $episodes;
+
     #[ORM\Column(type: 'string', length: 255)]
     private $country;
 
