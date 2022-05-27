@@ -31,13 +31,7 @@ class Program
     #[ORM\Column(type: 'text', length: 400)]
     private $synopsis;
 
-    #[Assert\Url()]
-    #[Assert\Image(
-        minWidth: 200,
-        maxWidth: 400,
-        minHeight: 200,
-        maxHeight: 400,
-    )]
+    #[Assert\]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $poster;
 
@@ -49,15 +43,10 @@ class Program
     private $seasons;
 
     #[Assert\NotBlank]
-    #[Assert\Length(
-        max: 255,
-        maxMessage: 'La catégorie saisie {{ value }} est trop longue, elle ne devrait pas dépasser {{ limit }} caractères',
-        )]
     #[ORM\Column(type: 'string', length: 255)]
     private $country;
 
     #[Assert\NotBlank]
-    #[Assert\Positive]
     #[ORM\Column(type: 'integer')]
     private $year;
 

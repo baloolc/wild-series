@@ -2,15 +2,12 @@
 
 namespace App\Entity;
 
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\ProgramRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ProgramRepository::class)]
-#[UniqueEntity("title")]
 class Program
 {
     #[ORM\Id]
@@ -19,25 +16,12 @@ class Program
     private $id;
 
     
-    #[Assert\NotBlank]
-    #[Assert\Length(
-    max: 255,
-    maxMessage: 'La catégorie saisie {{ value }} est trop longue, elle ne devrait pas dépasser {{ limit }} caractères',
-    )]
-    #[ORM\Column(name: 'title', type: 'string', length: 255, unique:true)]
+    #[ORM\Column(type: 'string', length: 255)]
     private $title;
 
-    #[Assert\NotBlank]
     #[ORM\Column(type: 'text', length: 400)]
     private $synopsis;
 
-    #[Assert\Url()]
-    #[Assert\Image(
-        minWidth: 200,
-        maxWidth: 400,
-        minHeight: 200,
-        maxHeight: 400,
-    )]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $poster;
 
@@ -48,16 +32,9 @@ class Program
     #[ORM\OneToMany(mappedBy: 'program', targetEntity: Season::class)]
     private $seasons;
 
-    #[Assert\NotBlank]
-    #[Assert\Length(
-        max: 255,
-        maxMessage: 'La catégorie saisie {{ value }} est trop longue, elle ne devrait pas dépasser {{ limit }} caractères',
-        )]
     #[ORM\Column(type: 'string', length: 255)]
     private $country;
 
-    #[Assert\NotBlank]
-    #[Assert\Positive]
     #[ORM\Column(type: 'integer')]
     private $year;
 

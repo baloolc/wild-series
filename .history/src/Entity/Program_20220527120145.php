@@ -57,7 +57,6 @@ class Program
     private $country;
 
     #[Assert\NotBlank]
-    #[Assert\Positive]
     #[ORM\Column(type: 'integer')]
     private $year;
 

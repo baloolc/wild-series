@@ -32,12 +32,6 @@ class Program
     private $synopsis;
 
     #[Assert\Url()]
-    #[Assert\Image(
-        minWidth: 200,
-        maxWidth: 400,
-        minHeight: 200,
-        maxHeight: 400,
-    )]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $poster;
 
@@ -57,7 +51,6 @@ class Program
     private $country;
 
     #[Assert\NotBlank]
-    #[Assert\Positive]
     #[ORM\Column(type: 'integer')]
     private $year;
 

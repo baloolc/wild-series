@@ -11,18 +11,15 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 class Category
 {
+    #[Assert\NotBlank]
+    public $name;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Assert\NotBlank(message: 'Ne me laisse pas tout vide')]
-    #[Assert\Length(
-    max: 255,
-    maxMessage: 'La catégorie saisie {{ value }} est trop longue, elle ne devrait pas dépasser {{ limit }} caractères',
-    )]
-    public $name;
+    private $name;
 
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Program::class)]
     private $programs;
