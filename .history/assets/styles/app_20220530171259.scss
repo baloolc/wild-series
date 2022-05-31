@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'Mu';
+    src: url('../fonts/Erika Ormig.ttf');
+    }
+$primary:rgb(74, 73, 73);
+$secondary:rgb(195, 123, 85);
+$light:rgb(248, 246, 244);
+$dark:rgb(26, 25, 24);
+$grey:rgb(221, 208, 202);
+$font-title:
+$font-link:
+$font-text:
+$font-icon:
+
+@import "~bootstrap/scss/bootstrap";
+
+
+.logo{
+    width: 5rem;
+    height: 3.5rem;
+    color: $light;
+}
+.name {
+
+}

@@ -1,0 +1,13 @@
+$primary:rgb(74, 73, 73);
+$secondary:rgb(195, 123, 85);
+$light:#F8F6F4;
+$dark:#1A1918;
+$grey:#DDD0CA;
+
+@import "~bootstrap/scss/bootstrap";
+
+
+.logo{
+    width: 5rem;
+    height: 3.5rem;
+}

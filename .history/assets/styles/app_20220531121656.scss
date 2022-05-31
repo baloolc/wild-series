@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+$primary:rgb(74, 73, 73);
+$secondary:rgb(195, 123, 85);
+$light:rgb(248, 246, 244);
+$dark:rgb(26, 25, 24);
+$grey:rgb(221, 208, 202);
+$font-title:'Mukta', sans-serif;
+$font-link:'Mukta', sans-serif;
+$font-text:'Nunito sans';
+$font-icon:'Special Elite', cursive;
+$font-title-size:36px;
+$font-link-size:26px;
+$font-text-size:22px;
+$font-icon-size:34px;
+
+@import "~bootstrap/scss/bootstrap";
+
+
+.logo{
+    width: 5rem;
+    height: 3.5rem;
+    color: $light;
+}
+.name {
+font-family: $font-icon;
+font-size:$font-icon-size;
+}
+.nav-link{
+    font-family: ;
+}

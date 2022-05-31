@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Orbitron:wght@400;500&family=Prompt&family=Roboto+Serif:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Orbitron:wght@400;500&family=Prompt&family=Roboto+Serif:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Orbitron:wght@400;500&family=Prompt&family=Roboto+Serif:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700&display=swap');
+
+$primary:rgb(74, 73, 73);
+$secondary:rgb(195, 123, 85);
+$light:rgb(248, 246, 244);
+$dark:rgb(26, 25, 24);
+$grey:rgb(221, 208, 202);
+$font-title:'Mukta';
+$font-link:'Mukta';
+$font-text:'Nunito sans';
+$font-icon:'Special Elite';
+$font-title-size:36px;
+$font-link-size:
+$font-text-size:
+$font-icon-size:34px;
+
+@import "~bootstrap/scss/bootstrap";
+
+
+.logo{
+    width: 5rem;
+    height: 3.5rem;
+    color: $light;
+}
+.name {
+font-family: $font-icon;
+font-size: ;
+}
