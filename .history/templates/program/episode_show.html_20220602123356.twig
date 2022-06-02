@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Episode #{{ program.id }}
+{% endblock %}
+
+
+{% block body %}
+	<div class="media ms-4">
+		<img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster">
+		<div class="media-body">
+			<h1 class="mt-0">{{ program.title }}</h1>
+			<h2>Saison:</h2>
+			<p>{{ season.id }}</p>
+			<h2>Episode</h2>
+				<p>{{ episode.id }}</p>
+			<h2>Titre de l'épisode:</h2>
+				<p>{{ episode.title }}</p>
+            <h2>Synopsis:</h2>
+            <p>{{ episode.synopsis }}</p>
+		</div>
+		<div>
+		{}
+        <a href="{{ path('episode_index')}}">{{  }}</a>
+        </div>
+		<div>
+			<a href="{{ path('program_show_season', { slug: program.slug, season: season.id }) }}">
+				Retour vers
+				{{ program.title }} avec la liste des épisodes.
+			</a>
+		</div>
+	</div>
+{% endblock %}
