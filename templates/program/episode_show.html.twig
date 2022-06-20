@@ -13,20 +13,37 @@
 			<h2>Saison:</h2>
 			<p>{{ season.id }}</p>
 			<h2>Episode</h2>
-				<p>{{ episode.id }}</p>
+			<p>{{ episode.id }}</p>
 			<h2>Titre de l'épisode:</h2>
-				<p>{{ episode.title }}</p>
-            <h2>Synopsis:</h2>
-            <p>{{ episode.synopsis }}</p>
+			<p>{{ episode.title }}</p>
+			<h2>Synopsis:</h2>
+			<p>{{ episode.synopsis }}</p>
 		</div>
-		<div>
-        <a href="{{ path('episode_index')}}">Tous les épisodes</a>
-        </div>
-		<div>
-			<a href="{{ path('program_show_season', { slug: program.slug, season: season.id }) }}">
-				Retour vers
-				{{ program.title }} avec la liste des épisodes.
-			</a>
-		</div>
-	</div>
-{% endblock %}
+		{% for comment in episode.comments %}
+			<div class="">
+				<h3 class="text-light">{{ comment.author.email }}
+					-
+					{{ comment.rate }}/10</h3>
+				<div class="bg-light">
+					<p>{{ comment.comment }}}</p>
+				</div>
+			</div>
+		{% endfor %}
+		{% if app.user %}
+				<h2 class="">
+					Laisser un commentaire</h2>
+				<div class="d-flex flex-column justify-content-start">
+					{% include "comment/_form.html.twig" %}
+				</div>
+			{% endif %}
+			<div>
+				<a class="btn btn-primary my-3" href="{{ path('episode_index')}}">Tous les épisodes</a>
+			</div>
+			<div>
+				<a class="btn btn-dark text-light" href="{{ path('program_show_season', { slug: program.slug, season: season.id }) }}">
+					Retour vers
+					{{ program.title }}
+					avec la liste des épisodes.
+				</a>
+			</div>
+	{% endblock %}
